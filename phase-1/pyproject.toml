@@ -1,0 +1,19 @@
+[project]
+name = "console-todo-app"
+version = "0.1.0"
+description = "Phase I In-Memory Python Console Todo App"
+authors = [
+    {name = "Developer", email = "dev@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+todo-app = "src.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
