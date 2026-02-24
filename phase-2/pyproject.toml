@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "todo-backend"
+version = "0.1.0"
+description = "Backend API for Todo Full-Stack Web Application"
+authors = [
+    {name = "Hackathon Team", email = "team@hackathon.com"},
+]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = ["todo", "api", "fastapi", "sqlmodel"]
+
+dependencies = [
+    "fastapi>=0.104.1",
+    "sqlmodel>=0.2.1",
+    "psycopg2-binary>=2.9.9",
+    "uvicorn[standard]>=0.24.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "python-multipart>=0.0.6",
+    "asyncpg>=0.29.0",
+    "async-exit-stack>=2.0.0",
+    "async-generator>=1.10",
+]
+
+[project.optional-dependencies]
+testing = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "requests>=2.31.0",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/todo-backend"
+Repository = "https://github.com/your-org/todo-backend"
+Documentation = "https://github.com/your-org/todo-backend"
+Issues = "https://github.com/your-org/todo-backend/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["src*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+known_first_party = ["src"]
+known_third_party = ["fastapi", "sqlmodel", "pydantic", "uvicorn", "pytest", "sqlalchemy", "bcrypt"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
